@@ -4,53 +4,81 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Rapidmotion by spnkr</title>
+
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/main.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
   <body>
-
+    <div class="wrapper">
       <header>
         <h1>Rapidmotion</h1>
         <p></p>
+
+        <p class="view"><a href="https://github.com/spnkr/rapidmotion">View the Project on GitHub <small>spnkr/rapidmotion</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/spnkr/rapidmotion/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/spnkr/rapidmotion/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/spnkr/rapidmotion">View On <strong>GitHub</strong></a></li>
+        </ul>
       </header>
-
-      <div id="banner">
-        <span id="logo"></span>
-
-        <a href="https://github.com/spnkr/rapidmotion" class="button fork"><strong>View On GitHub</strong></a>
-        <div class="downloads">
-          <span>Downloads:</span>
-          <ul>
-            <li><a href="https://github.com/spnkr/rapidmotion/zipball/master" class="button">ZIP</a></li>
-            <li><a href="https://github.com/spnkr/rapidmotion/tarball/master" class="button">TAR</a></li>
-          </ul>
-        </div>
-      </div><!-- end banner -->
-
-    <div class="wrapper">
-      <nav>
-        <ul></ul>
-      </nav>
       <section>
-        <h3>RapidMotion</h3>
+        <h1>rapidmotion</h1>
 
-<p>Stuff for RubyMotion.</p>
+<h2>Pre-alpha release</h2>
 
-<h2>Documentation coming soon</h2>
+<p>Still a work in progress</p>
+
+<h2>Requirements</h2>
+
+<p>Requires ProMotion, sugarcube, and bubble-wrap</p>
+
+<h2>Extensions to ProMotion::Screen</h2>
+
+<h3>Text input</h3>
+
+<p>Adds to current Screen. Adds done button to keyboard, positions at the top or bottom of the screen.</p>
+
+<div class="highlight"><pre>
+<span class="n">add_input</span> <span class="ss">:email</span><span class="p">,</span> <span class="p">{</span><span class="ss">bottom</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="ss">placeholder</span><span class="p">:</span><span class="s1">'Third'</span><span class="p">}</span>
+<span class="n">add_input</span> <span class="ss">:email</span><span class="p">,</span> <span class="p">{</span><span class="ss">top</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="ss">placeholder</span><span class="p">:</span><span class="s1">'First'</span><span class="p">}</span>
+<span class="n">add_input</span> <span class="ss">:email</span><span class="p">,</span> <span class="p">{</span><span class="ss">top</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="ss">placeholder</span><span class="p">:</span><span class="s1">'Second'</span><span class="p">}</span>
+
+</pre></div>
+
+<h3>Buttons</h3>
+
+<p>Adds to current Screen. Positions at the top or bottom of the screen.</p>
+
+<div class="highlight"><pre><span class="n">add_button</span> <span class="ss">title</span><span class="p">:</span><span class="s2">"Save"</span><span class="p">,</span> <span class="ss">bottom</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="ss">action</span><span class="p">:</span><span class="s1">'callback'</span>
+<span class="n">add_button</span> <span class="ss">title</span><span class="p">:</span><span class="s2">"Skip"</span><span class="p">,</span> <span class="ss">bottom</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="ss">action</span><span class="p">:</span><span class="s1">'another_callback'</span>
+<span class="n">add_button</span> <span class="ss">title</span><span class="p">:</span><span class="s2">"I do not"</span><span class="p">,</span> <span class="ss">bottom</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="ss">action</span><span class="p">:</span><span class="s1">'more_cowbell_callback'</span>
+
+<span class="k">def</span> <span class="nf">callback</span>
+    <span class="c1"># called when Save is clicked</span>
+<span class="k">end</span>
+</pre></div>
+
+<h3>Backgrounds</h3>
+
+<p>Sets the Screen's background to this image, stretched to fit.</p>
+
+<div class="highlight"><pre>
+<span class="n">background_image</span> <span class="s2">"some-image"</span>
+
+</pre></div>
       </section>
       <footer>
-        <p>Project maintained by <a href="https://github.com/spnkr">spnkr</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></small></p>
+        <p>This project is maintained by <a href="https://github.com/spnkr">spnkr</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    <script src="javascripts/scale.fix.js"></script>
     
   </body>
 </html>
