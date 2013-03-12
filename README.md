@@ -4,10 +4,15 @@ rapidmotion
 RubyMotion helpers. Still a work in progress.
 
 # REPL helpers #
-## RapidMotion.snoop
+## Usage ##
+~~~
+class AppDelegate < ...
+  include RapidMotion::Inspect
+~~~
+## snoop
 gets an instance variable named some_var or @some_var as long as it's a member of one of the root application controller's childviewcontrollers.
 ~~~
-foo = RapidMotion.snoop :some_var
+foo = snoop :some_var
 ~~~
 
 
