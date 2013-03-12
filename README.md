@@ -1,13 +1,25 @@
 rapidmotion
 ===========
 
-## Pre-alpha release
-Still a work in progress
+RubyMotion helpers. Still a work in progress.
+
+# REPL helpers #
+## RapidMotion.snoop
+gets an instance variable named some_var or @some_var as long as it's a member of one of the root application controller's childviewcontrollers.
+~~~
+foo = RapidMotion.snoop :some_var
+~~~
+
 
 ## Requirements
-Requires ProMotion, sugarcube, and bubble-wrap
+Requires [sugarcube](https://github.com/rubymotion/sugarcube) and [bubble-wrap](http://bubblewrap.io/).
+
+Some experimental features require [teacup](https://github.com/rubymotion/teacup), [motion-cocoapods](https://github.com/HipByte/motion-cocoapods) [ProMotion](https://github.com/clearsightstudio/ProMotion), and/or [sweettea](https://github.com/colinta/sweettea).
 
 
+
+# Experimental features #
+Usefulness may vary.
 
 ## Extensions to ProMotion::Screen
 
