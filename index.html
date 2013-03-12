@@ -30,13 +30,26 @@
       <section>
         <h1>rapidmotion</h1>
 
-<h2>Pre-alpha release</h2>
+<p>RubyMotion helpers. Still a work in progress.</p>
 
-<p>Still a work in progress</p>
+<h1>REPL helpers</h1>
+
+<h2>RapidMotion.snoop</h2>
+
+<p>gets an instance variable named some_var or @some_var as long as it's a member of one of the root application controller's childviewcontrollers.</p>
+
+<pre><code>foo = RapidMotion.snoop :some_var
+</code></pre>
 
 <h2>Requirements</h2>
 
-<p>Requires ProMotion, sugarcube, and bubble-wrap</p>
+<p>Requires <a href="https://github.com/rubymotion/sugarcube">sugarcube</a> and <a href="http://bubblewrap.io/">bubble-wrap</a>.</p>
+
+<p>Some experimental features require <a href="https://github.com/rubymotion/teacup">teacup</a>, <a href="https://github.com/HipByte/motion-cocoapods">motion-cocoapods</a> <a href="https://github.com/clearsightstudio/ProMotion">ProMotion</a>, and/or <a href="https://github.com/colinta/sweettea">sweettea</a>.</p>
+
+<h1>Experimental features</h1>
+
+<p>Usefulness may vary.</p>
 
 <h2>Extensions to ProMotion::Screen</h2>
 
@@ -79,6 +92,16 @@
       </footer>
     </div>
     <script src="javascripts/scale.fix.js"></script>
-    
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-39212734-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
   </body>
 </html>
