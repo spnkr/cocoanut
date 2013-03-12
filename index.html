@@ -34,11 +34,17 @@
 
 <h1>REPL helpers</h1>
 
-<h2>RapidMotion.snoop</h2>
+<h2>Usage</h2>
+
+<pre><code>class AppDelegate &lt; ...
+  include RapidMotion::Inspect
+</code></pre>
+
+<h2>snoop</h2>
 
 <p>gets an instance variable named some_var or @some_var as long as it's a member of one of the root application controller's childviewcontrollers.</p>
 
-<pre><code>foo = RapidMotion.snoop :some_var
+<pre><code>foo = snoop :some_var
 </code></pre>
 
 <h2>Requirements</h2>
