@@ -26,7 +26,13 @@ Some experimental features require [teacup](https://github.com/rubymotion/teacup
 # Experimental features #
 Usefulness may vary.
 
-## Extensions to ProMotion::Screen
+## UI Extensions
+In a view
+```
+addui :button, :purple, title:"Title", bottom:25+25, touch:Proc.new{App.alert("Hi")}
+```
+
+## Other
 
 ### Text input
 Adds to current Screen. Adds done button to keyboard, positions at the top or bottom of the screen.

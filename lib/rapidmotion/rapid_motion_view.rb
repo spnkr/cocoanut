@@ -1,5 +1,22 @@
 module RapidMotionView
 
+	#addui :button, :purple, title:"Attack roll", bottom:25+25, touch:Proc.new{App.alert("fssfd")}
+	def addui(type,css,args={})
+		if type==:button
+			button = UIButton.custom
+			button.frame = [[25,App.window.frame.height-43-args[:bottom]],[272,43]]
+			button.setTitle(args[:title],forState:UIControlStateNormal)
+			button.styleClass = "#{css}-button"
+			button.on(:touch){
+				args[:touch].call
+			}
+			view << button
+		end
+	end
+	def navigation_bar
+		self.navigationItem.navigationBar
+	end
+
 	def add_button(args)
 		style = args[:style] || :rounded
 
