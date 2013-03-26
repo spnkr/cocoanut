@@ -27,7 +27,7 @@ Some experimental features require [teacup](https://github.com/rubymotion/teacup
 Usefulness may vary.
 
 ## UI Extensions
-In a view
+Syntactic sugar for buttons, UINavigationBars, and other UIView objects
 ```
 addui :button, :purple, title:"Title", bottom:25+25, touch:Proc.new{App.alert("Hi")}
 ```

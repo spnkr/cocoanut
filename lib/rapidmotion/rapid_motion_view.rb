@@ -1,18 +1,67 @@
 module RapidMotionView
 
 	#addui :button, :purple, title:"Attack roll", bottom:25+25, touch:Proc.new{App.alert("fssfd")}
-	def addui(type,css,args={})
-		if type==:button
-			button = UIButton.custom
-			button.frame = [[25,App.window.frame.height-43-args[:bottom]],[272,43]]
-			button.setTitle(args[:title],forState:UIControlStateNormal)
-			button.styleClass = "#{css}-button"
-			button.on(:touch){
-				args[:touch].call
-			}
-			view << button
-		end
-	end
+	# addui :nav_button, nil, {on: :right, text: "Me", touch:Proc.new{
+ #      App.delegate.instance_variable_get("@view_deck").toggleRightViewAnimated(true)
+ #    }}
+
+ #    addui :nav_button, nil, {on: :left, image: "icolines", touch:Proc.new{
+ #      App.delegate.instance_variable_get("@view_deck").toggleLeftViewAnimated(true)
+ #    }}
+	def addui(args={})
+    		kind=args[:kind]
+    		if kind==:button
+					addui_button(args)
+    		elsif kind==:nav_button
+    			addui_nav_button(args)
+    		end
+    	end
+    	def addui_nav_button(args={})
+    		kind=args[:kind]
+    		css=args[:css]
+    		if args[:image].nil?
+	    		db = UIBarButtonItem.alloc.initWithTitle(args[:text], style: UIBarButtonItemStyleBordered,target:self, action:args[:action])
+					db.styleClass = "#{css}-button"
+					# db.on(:touch){
+					# 	args[:touch].call
+					# }
+					if args[:on]== :right
+	    			self.navigationItem.rightBarButtonItem = db
+					else
+	    			self.navigationItem.leftBarButtonItem = db
+				  end
+					db
+				else
+					img=args[:image].uiimage.scale_to([24,24])
+					db=UIButton.custom
+					db.setImage(img,forState:UIControlStateNormal)
+					db.frame = CGRectMake(0.0, 0.0, img.size.width, img.size.height)
+
+
+					db.on(:touch){
+						db.on(:touch){
+							args[:touch].call
+						}
+					}
+					aBarButtonItem = UIBarButtonItem.alloc.initWithCustomView(db)
+
+
+					self.navigationItem.send("#{args[:on].downcase}BarButtonItem=",aBarButtonItem)
+				end
+    	end
+    	def addui_button(args={})
+    		kind=args[:kind]
+    		css=args[:css]
+    		button = UIButton.custom
+				button.frame = [[25,App.window.frame.height-43-10-63-args[:bottom]*58],[272,43]]
+				button.setTitle(args[:title],forState:UIControlStateNormal)
+				button.styleClass = "#{css}-button"
+				button.on(:touch){
+					args[:touch].call
+				}
+				view << button
+				button
+    	end
 	def navigation_bar
 		self.navigationItem.navigationBar
 	end
