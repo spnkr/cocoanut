@@ -7,7 +7,6 @@
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -16,97 +15,76 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1 class="header">Rapidmotion</h1>
-        <p class="header"></p>
+        <h1>Rapidmotion</h1>
+        <p></p>
+
+        <p class="view"><a href="https://github.com/spnkr/rapidmotion">View the Project on GitHub <small>spnkr/rapidmotion</small></a></p>
+
 
         <ul>
-          <li class="download"><a class="buttons" href="https://github.com/spnkr/rapidmotion/zipball/master">Download ZIP</a></li>
-          <li class="download"><a class="buttons" href="https://github.com/spnkr/rapidmotion/tarball/master">Download TAR</a></li>
-          <li><a class="buttons github" href="https://github.com/spnkr/rapidmotion">View On GitHub</a></li>
+          <li><a href="https://github.com/spnkr/rapidmotion/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/spnkr/rapidmotion/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/spnkr/rapidmotion">View On <strong>GitHub</strong></a></li>
         </ul>
-
-        <p class="header">This project is maintained by <a class="header name" href="https://github.com/spnkr">spnkr</a></p>
-
-
       </header>
       <section>
         <h1>rapidmotion</h1>
 
-<p>RubyMotion helpers. Still a work in progress.</p>
+<p>Rubymotion add ons</p>
 
-<h1>REPL helpers</h1>
+<h2>Installation</h2>
+
+<p>Add this line to your application's Gemfile:</p>
+
+<pre><code>gem 'rapidmotion'
+</code></pre>
+
+<p>And then execute:</p>
+
+<pre><code>$ bundle
+</code></pre>
+
+<p>Or install it yourself as:</p>
+
+<pre><code>$ gem install rapidmotion
+</code></pre>
 
 <h2>Usage</h2>
 
-<pre><code>class AppDelegate &lt; ...
-  include RapidMotion::Inspect
-</code></pre>
+<h1><code>UIViewController</code></h1>
 
-<h2>snoop</h2>
+<ol>
+<li><code>tack</code></li>
+<li><code>paste</code></li>
+<li><code>shake</code></li>
+</ol><h1><code>UIView</code></h1>
 
-<p>gets an instance variable named some_var or @some_var as long as it's a member of one of the root application controller's childviewcontrollers.</p>
+<ol>
+<li><code>tack</code></li>
+<li><code>paste</code></li>
+<li><code>shake</code></li>
+<li><code>cut</code></li>
+<li><code>zoom_out_to</code></li>
+<li><code>appear</code></li>
+<li><code>vanish</code></li>
+<li><code>views</code></li>
+</ol><h2>Contributing</h2>
 
-<pre><code>foo = snoop :some_var
-</code></pre>
-
-<h2>Requirements</h2>
-
-<p>Requires <a href="https://github.com/rubymotion/sugarcube">sugarcube</a> and <a href="http://bubblewrap.io/">bubble-wrap</a>.</p>
-
-<p>Some experimental features require <a href="https://github.com/rubymotion/teacup">teacup</a>, <a href="https://github.com/HipByte/motion-cocoapods">motion-cocoapods</a> <a href="https://github.com/clearsightstudio/ProMotion">ProMotion</a>, and/or <a href="https://github.com/colinta/sweettea">sweettea</a>.</p>
-
-<h1>Experimental features</h1>
-
-<p>Usefulness may vary.</p>
-
-<h2>UI Extensions</h2>
-
-<p>In a view</p>
-
-<pre><code>addui :button, :purple, title:"Title", bottom:25+25, touch:Proc.new{App.alert("Hi")}
-</code></pre>
-
-<h2>Other</h2>
-
-<h3>Text input</h3>
-
-<p>Adds to current Screen. Adds done button to keyboard, positions at the top or bottom of the screen.</p>
-
-<div class="highlight"><pre>
-<span class="n">add_input</span> <span class="ss">:email</span><span class="p">,</span> <span class="p">{</span><span class="ss">bottom</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="ss">placeholder</span><span class="p">:</span><span class="s1">'Third'</span><span class="p">}</span>
-<span class="n">add_input</span> <span class="ss">:email</span><span class="p">,</span> <span class="p">{</span><span class="ss">top</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="ss">placeholder</span><span class="p">:</span><span class="s1">'First'</span><span class="p">}</span>
-<span class="n">add_input</span> <span class="ss">:email</span><span class="p">,</span> <span class="p">{</span><span class="ss">top</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="ss">placeholder</span><span class="p">:</span><span class="s1">'Second'</span><span class="p">}</span>
-
-</pre></div>
-
-<h3>Buttons</h3>
-
-<p>Adds to current Screen. Positions at the top or bottom of the screen.</p>
-
-<div class="highlight"><pre><span class="n">add_button</span> <span class="ss">title</span><span class="p">:</span><span class="s2">"Save"</span><span class="p">,</span> <span class="ss">bottom</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="ss">action</span><span class="p">:</span><span class="s1">'callback'</span>
-<span class="n">add_button</span> <span class="ss">title</span><span class="p">:</span><span class="s2">"Skip"</span><span class="p">,</span> <span class="ss">bottom</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="ss">action</span><span class="p">:</span><span class="s1">'another_callback'</span>
-<span class="n">add_button</span> <span class="ss">title</span><span class="p">:</span><span class="s2">"I do not"</span><span class="p">,</span> <span class="ss">bottom</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="ss">action</span><span class="p">:</span><span class="s1">'more_cowbell_callback'</span>
-
-<span class="k">def</span> <span class="nf">callback</span>
-    <span class="c1"># called when Save is clicked</span>
-<span class="k">end</span>
-</pre></div>
-
-<h3>Backgrounds</h3>
-
-<p>Sets the Screen's background to this image, stretched to fit.</p>
-
-<div class="highlight"><pre>
-<span class="n">background_image</span> <span class="s2">"some-image"</span>
-
-</pre></div>
+<ol>
+<li>Fork it</li>
+<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+<li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
+<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+<li>Create new Pull Request</li>
+</ol>
       </section>
       <footer>
-        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+        <p>This project is maintained by <a href="https://github.com/spnkr">spnkr</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-		          <script type="text/javascript">
+    <script src="javascripts/scale.fix.js"></script>
+              <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
