@@ -1,70 +1,48 @@
-rapidmotion
-===========
+# rapidmotion
 
-RubyMotion helpers. Still a work in progress.
+Rubymotion add ons
 
-# REPL helpers #
-## Usage ##
-~~~
-class AppDelegate < ...
-  include RapidMotion::Inspect
-~~~
-## snoop
-gets an instance variable named some_var or @some_var as long as it's a member of one of the root application controller's childviewcontrollers.
-~~~
-foo = snoop :some_var
-~~~
+## Installation
 
+Add this line to your application's Gemfile:
 
-## Requirements
-Requires [sugarcube](https://github.com/rubymotion/sugarcube) and [bubble-wrap](http://bubblewrap.io/).
+    gem 'rapidmotion'
 
-Some experimental features require [teacup](https://github.com/rubymotion/teacup), [motion-cocoapods](https://github.com/HipByte/motion-cocoapods) [ProMotion](https://github.com/clearsightstudio/ProMotion), and/or [sweettea](https://github.com/colinta/sweettea).
+And then execute:
 
+    $ bundle
 
+Or install it yourself as:
 
-# Experimental features #
-Usefulness may vary.
+    $ gem install rapidmotion
 
-## UI Extensions
-Syntactic sugar for buttons, UINavigationBars, and other UIView objects
-```
-addui :button, :purple, title:"Title", bottom:25+25, touch:Proc.new{App.alert("Hi")}
-```
+## Usage
 
-## Other
-
-### Text input
-Adds to current Screen. Adds done button to keyboard, positions at the top or bottom of the screen.
-
-~~~ruby
-
-add_input :email, {bottom:0, placeholder:'Third'}
-add_input :email, {top:0, placeholder:'First'}
-add_input :email, {top:1, placeholder:'Second'}
-
-~~~
+# `UIViewController`
+1. `tack`
+2. `paste`
+3. `shake`
 
 
-### Buttons
-Adds to current Screen. Positions at the top or bottom of the screen.
 
-~~~ ruby
-add_button title:"Save", bottom:1, action:'callback'
-add_button title:"Skip", bottom:0, action:'another_callback'
-add_button title:"I do not", bottom:0, action:'more_cowbell_callback'
-
-def callback
-	# called when Save is clicked
-end
-~~~
+# `UIView`
+1. `tack`
+2. `paste`
+3. `shake`
+4. `cut`
+5. `zoom_out_to`
+5. `appear`
+5. `vanish`
+5. `views`
 
 
-### Backgrounds
 
-Sets the Screen's background to this image, stretched to fit.
-~~~ruby
 
-background_image "some-image"
 
-~~~
+## Contributing
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
