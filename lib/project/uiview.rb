@@ -7,6 +7,14 @@ class UIView
 		duration=args[:duration] || 0.5
 		UIView.animateWithDuration(duration, delay:0, options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionCurveEaseInOut, animations: lambda{vw.transform = CGAffineTransform.make(scale: scale); vw.alpha=alpha}, completion:nil)
 	end
+	def trans
+		
+		vw = args[:view] || self
+		scale=args[:scale] || 1.0
+		alpha=args[:alpha] || 1.0
+		duration=args[:duration] || 0.5
+		UIView.animateWithDuration(duration, delay:0, options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionCurveEaseInOut, animations: lambda{vw.layer.transform = CATransform3D.identity.translate(10, 10, 10).scale(2).rotate(Math::PI / 4)}, completion:nil)
+	end
 	def appear
 		fade_in(duration:0.1+rand,delay:(0.1+rand)/2,options:UIViewAnimationOptionCurveEaseIn,opacity:1.0)
 	end
