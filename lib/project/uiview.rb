@@ -15,7 +15,7 @@ class UIView
 		duration=args[:duration] || 0.5
 		UIView.animateWithDuration(duration, delay:0, options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionCurveEaseInOut, animations: lambda{vw.layer.transform = CATransform3D.identity.perspective(0,0.0004)}, completion:nil)
 	end
-	def persp_and_grow
+	def perspective_and_grow
 
 		
 		vw = args[:view] || self
