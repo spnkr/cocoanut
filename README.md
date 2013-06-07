@@ -22,6 +22,7 @@ Or install it yourself as:
 1. `tack`
 2. `paste`
 3. `shake`
+4. `lift`
 
 
 
@@ -34,7 +35,12 @@ Or install it yourself as:
 5. `appear`
 5. `vanish`
 5. `views`
+5. `perspective`
+5. `perspective_and_grow`
 
+
+# `UILabel`
+1. `inset_white`
 
 
 
