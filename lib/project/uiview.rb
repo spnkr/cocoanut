@@ -1,5 +1,19 @@
 
 class UIView
+	def shrink(args={})
+		scale=args[:scale] || 0.1
+		scale=args[:alpha] || 0
+		zoom_out_to scale:scale, alpha:alpha
+	end
+	def explode
+		zoom_out_to scale:4, alpha:0
+	end
+	def restore
+		zoom_out_to scale:1, alpha:1
+	end
+	def zoom!(args={})
+		zoom_out_to args
+	end
 	def zoom_out_to(args={})
 		vw = args[:view] || self
 		scale=args[:scale] || 1.0
@@ -7,22 +21,35 @@ class UIView
 		duration=args[:duration] || 0.5
 		UIView.animateWithDuration(duration, delay:0, options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionCurveEaseInOut, animations: lambda{vw.transform = CGAffineTransform.make(scale: scale); vw.alpha=alpha}, completion:nil)
 	end
-	def perspective
+	def perspective(args={})
 		
 		vw = args[:view] || self
 		scale=args[:scale] || 1.0
 		alpha=args[:alpha] || 1.0
 		duration=args[:duration] || 0.5
-		UIView.animateWithDuration(duration, delay:0, options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionCurveEaseInOut, animations: lambda{vw.layer.transform = CATransform3D.identity.perspective(0,0.0004)}, completion:nil)
+		p = args[:amount] || [0,0.0004]
+		UIView.animateWithDuration(duration, delay:0, options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionCurveEaseInOut, animations: lambda{vw.layer.transform = CATransform3D.identity.perspective(p[0],p[1])}, completion:nil)
 	end
-	def perspective_and_grow
+	def perspective_and_grow(args={})
 
 		
 		vw = args[:view] || self
-		scale=args[:scale] || 1.0
+		scale=args[:scale] || 2.0
 		alpha=args[:alpha] || 1.0
 		duration=args[:duration] || 0.5
-		UIView.animateWithDuration(duration, delay:0, options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionCurveEaseInOut, animations: lambda{vw.layer.transform = CATransform3D.identity.scale(2).perspective(0,0.0004)}, completion:nil)
+		p = args[:amount] || [0,0.0004]
+		UIView.animateWithDuration(duration, delay:0, options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionCurveEaseInOut, animations: lambda{vw.layer.transform = CATransform3D.identity.scale(scale).perspective(p[0],p[1])}, completion:nil)
+	end
+	def gradient(a,b=nil)
+		if b.nil?
+			b = a[1]
+			a = a[0]
+		end
+
+		gradient = CAGradientLayer.layer
+		gradient.frame = self.bounds
+		gradient.colors = [a.uicolor.CGColor,b.uicolor.CGColor]
+		self.layer.addSublayer(gradient) 
 	end
 	def appear
 		fade_in(duration:0.1+rand,delay:(0.1+rand)/2,options:UIViewAnimationOptionCurveEaseIn,opacity:1.0)

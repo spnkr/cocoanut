@@ -5,7 +5,7 @@ class UILabel
 		self.layer.shadowRadius = 0
 		self.layer.shadowOffset = [-1,-1]
 		self.layer.shadowColor = :black.uicolor.CGColor
-		self.setFont(UIFont.fontWithName("VAGRounded-Bold", size:(args[:size]||28)))
+		self.setFont(UIFont.fontWithName("Futura", size:(args[:size]||28)))
 		self.layer.shadowColor = :black.uicolor(0.3).CGColor
 		self
 	end
@@ -15,8 +15,12 @@ class UILabel
 		self.layer.shadowRadius = 0
 		self.layer.shadowOffset = [1,1]
 		self.layer.shadowColor = :black.uicolor.CGColor
-		self.setFont(UIFont.fontWithName("VAGRounded-Bold", size:(args[:size]||28)))
+		self.setFont(UIFont.fontWithName("Futura", size:(args[:size]||28)))
 		self.layer.shadowColor = :black.uicolor(0.3).CGColor
 		self
 	end
+	def method_name
+		
+	end
 end
+

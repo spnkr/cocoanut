@@ -27,20 +27,26 @@ Or install it yourself as:
 
 
 # `UIView`
-1. `tack`
-2. `paste`
-3. `shake`
-4. `cut`
-5. `zoom_out_to`
-5. `appear`
-5. `vanish`
-5. `views`
-5. `perspective`
-5. `perspective_and_grow`
-
+- `tack`
+- `paste`
+- `shake`
+- `cut`
+- `zoom_out_to`
+- `appear`
+- `vanish`
+- `views`
+- `perspective`
+- `perspective_and_grow`
+- `round!`
+- `shadow!`
+- `shrink`
+- `explode`
+- `restore`
 
 # `UILabel`
 1. `inset_white`
+
+
 
 
 
