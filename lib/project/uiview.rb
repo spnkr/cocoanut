@@ -67,9 +67,7 @@ class UIView
         fade_out(duration:0.1+rand,delay:(0.1+rand)/2,options:UIViewAnimationOptionCurveEaseOut,opacity:0.0)
     end
 
-    def views
-        subviews
-    end
+    
     def kill
         destroy
     end
@@ -80,9 +78,7 @@ class UIView
     def cut
         lift
     end
-    def lift
-        removeFromSuperview
-    end
+    
     def wiggle
         shake offset: 0.1, repeat: 2, duration: 0.5, keypath: 'transform.rotation'
     end
@@ -92,19 +88,11 @@ class UIView
     def shake_left_right
         shake #offset: 5, repeat: 4, duration: 0.78, keypath: 'transform.translation.x'
     end
-    def bcolor=(uicolor)
-        self.backgroundColor = uicolor
-    end
-    def tack(uiview)
-        paste(uiview)
-    end
+    
     def join(uiview)
         paste(uiview)
     end
-    def paste(uiview)
-        self.addSubview(uiview)
-        uiview
-    end
+    
     def inset!(ei=EdgeInsets(10))
         self.frame = self.frame.inset(ei)
     end

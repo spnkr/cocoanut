@@ -1,18 +1,7 @@
 
 class UIViewController
-    def views
-        self.view.views
-    end
-    def tack(uiview)
-        paste(uiview)
-    end
-    def join(uiview)
-        paste(uiview)
-    end
-    def paste(uiview)
-        self.view.addSubview(uiview)
-        uiview
-    end
+    
+    
     def frame
         view.frame
     end

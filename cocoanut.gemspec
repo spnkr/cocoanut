@@ -4,12 +4,12 @@ VERSION = "0.0.12"
 Gem::Specification.new do |spec|
   spec.name          = "cocoanut"
   spec.version       = VERSION
-  spec.authors       = [""]
+  spec.authors       = ["Will Jessop"]
   spec.email         = ["wjessop@gmail.com"]
-  spec.description   = %q{More rapid rubymotion development}
-  spec.summary       = %q{Extensions to various classes, and more.}
-  spec.homepage      = ""
-  spec.license       = ""
+  spec.description   = %q{Syntactic sugar for cocoa and ruby motion}
+  spec.summary       = %q{A rubymotion library along the lines of bubblewrap and sugarcube. For iOS.}
+  spec.homepage      = "https://github.com/spnkr/cocoanut/"
+  spec.license       = "MIT"
 
   files = []
   files << 'README.md'
