@@ -1,4 +1,4 @@
-# rapidmotion
+# cocoanut
 
 Rubymotion add ons
 
@@ -6,7 +6,7 @@ Rubymotion add ons
 
 Add this line to your application's Gemfile:
 
-    gem 'rapidmotion'
+    gem 'cocoanut'
 
 And then execute:
 
@@ -14,7 +14,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install rapidmotion
+    $ gem install cocoanut
 
 ## Usage
 
