@@ -1,3 +1,3 @@
 module Cocoanut
-  Version = '0.12.0'
+  Version = '0.15.0'
 end

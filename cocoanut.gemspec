@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-VERSION = "0.0.12"
+VERSION = "0.0.15"
 
 Gem::Specification.new do |spec|
   spec.name          = "cocoanut"
