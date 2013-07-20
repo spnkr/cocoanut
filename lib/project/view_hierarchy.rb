@@ -41,7 +41,13 @@ class UIView
                     u.bcolor = back.uicolor
                 end
                 args[:join].tap{|q|if !q.nil?;q.paste(u);end}
-                args[:tap].tap{|q|if !q.nil?;q.call;end}
+                args[:tap].tap{|q|
+                    if !q.nil?
+                        u.when_tapped do
+                            q.call
+                        end
+                    end
+                }
             end
         end
     end
