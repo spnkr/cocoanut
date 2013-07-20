@@ -11,15 +11,35 @@ class UIView
     def restore
         zoom_out_to scale:1, alpha:1
     end
-    def zoom!(args={})
-        zoom_out_to args
+
+      def back_fiend!(options={})
+    scale = options[:scale] || 0.5
+    perspective = options[:perspective] || -0.0005
+    size = options[:size] || -140
+
+    UIView.animation_chain(duration:200.millisecs, options:UIViewAnimationOptionCurveLinear) {
+      self.layer.transform = CATransform3DTranslate(CATransform3DScale(CATransform3D.new(1,0,0,0, 0,1,0,perspective, 0,0,1,0, 0,0,0,1), scale, scale, scale), 0, size, 0)
+    }.and_then(duration:300.millisecs, options:UIViewAnimationOptionCurveLinear) {
+      self.layer.transform = CATransform3DTranslate(CATransform3DScale(CATransform3DIdentity, scale, scale, scale), 0, size, 0)
+    }.start
+  end
+
+  # restores the layer after a call to 'back_fiend!'
+  def forward_fiend!(options={})
+    UIView.animate(options) do
+      self.layer.transform = CATransform3DIdentity
     end
-    def zoom_out_to(args={})
+  end
+
+    def zoom(args={})
         vw = args[:view] || self
         scale=args[:scale] || 1.0
         alpha=args[:alpha] || 1.0
         duration=args[:duration] || 0.5
         UIView.animateWithDuration(duration, delay:0, options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionCurveEaseInOut, animations: lambda{vw.transform = CGAffineTransform.make(scale: scale); vw.alpha=alpha}, completion:nil)
+    end
+    def zoom_out_to(args={})
+        zoom args
     end
     def perspective(args={})
         

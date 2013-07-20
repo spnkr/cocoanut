@@ -1,4 +1,23 @@
+class Symbol
+    def img
+        self.uiimage
+    end
+    def imgv
+        self.uiimage.uiimageview
+    end
+end
+class String
+    def img
+        self.uiimage
+    end
+    def imgv
+        self.uiimage.uiimageview
+    end
+end
 class UIImage
+    def iview
+        self.uiimageview
+    end
     def blur(options={})
         filter_name = 'CIGaussianBlur'
         filter_options = {
@@ -103,5 +122,25 @@ class UIImage
         return output_image
     end
 end
+class UIView
+    def img
+        self.uiimage
+    end
+end
 
 
+
+
+
+# class UILabel
+#     def format(args={})
+#         pad = args[:pad] || 10
+#         container_width = args[:container_width]
+#         af = args[:font] || App::FONT
+#         col = args[:color] || :black.uicolor
+#         sz = args[:size] || 18
+#         self.setFont(UIFont.fontWithName(af, size:sz))
+#         self.frame = self.frame.tap{|x|x.width=container_width-2*pad;x.left(pad)}
+#         self.setColor col
+#     end
+# end

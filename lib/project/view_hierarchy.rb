@@ -24,18 +24,24 @@ class UIView
     class << self
         def make(args={}, &block)
             frame = args[:frame]
-            units = args[:units] || :percents
+            units = args[:units] || :pixels
             if units== :percents
                 frame[2] = frame[2] * Window.win.width
                 frame[3] = frame[3] * Window.win.height
+            elsif !args[:nowrap]
+                frame[0] = Window.win.width+frame[0] if frame[0] < 0
+                frame[1] = Window.win.height+frame[1] if frame[1] < 0
             end
             f=frame
             UIView.alloc.initWithFrame([[f[0],f[1]],[f[2],f[3]]]).tap do |u|
                 back = args[:back]
-                unless back.nil?
-                    u.bcolor = back
+                if back.nil?
+                    u.bcolor = :clear.uicolor
+                else
+                    u.bcolor = back.uicolor
                 end
                 args[:join].tap{|q|if !q.nil?;q.paste(u);end}
+                args[:tap].tap{|q|if !q.nil?;q.call;end}
             end
         end
     end
