@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "cocoanut"
-  spec.version       = "0.16.0"
+  spec.version       = "0.17.0"
   spec.authors       = ["Will Jessop"]
   spec.email         = ["wjessop@gmail.com"]
   spec.description   = %q{Syntactic sugar for cocoa and ruby motion}

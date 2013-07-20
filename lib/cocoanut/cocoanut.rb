@@ -1,4 +1,5 @@
 class Cocoanut
+	# VERSION = '0.17.0'
 	class << self
 		def app
 			UIApplication.sharedApplication

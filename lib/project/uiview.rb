@@ -1,4 +1,48 @@
 
+
+
+# scrollViewWillEndDragging:withVelocity:targetContentOffset:
+# Tells the delegate when the user finishes scrolling the content.
+
+# - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
+# Parameters
+# scrollView
+# The scroll-view object where the user ended the touch..
+# velocity
+# The velocity of the scroll view (in points) at the moment the touch was released.
+# targetContentOffset
+# The expected offset when the scrolling action decelerates to a stop.
+# Discussion
+# This method is not called when the value of the scroll view’s pagingEnabled property is YES. Your application can change the value of the targetContentOffset parameter to adjust where the scrollview finishes its scrolling animation.
+
+# Availability
+# Available in iOS 5.0 and later.
+# Declared In
+# UIScrollView.h
+
+
+# scrollViewDidScroll:
+# Tells the delegate when the user scrolls the content view within the receiver.
+
+# - (void)scrollViewDidScroll:(UIScrollView *)scrollView
+# Parameters
+# scrollView
+# The scroll-view object in which the scrolling occurred.
+# Discussion
+# The delegate typically implements this method to obtain the change in content offset from scrollView and draw the affected portion of the content view.
+
+# Availability
+# Available in iOS 2.0 and later.
+# See Also
+# – scrollViewWillBeginDragging:
+# – scrollViewDidEndDragging:willDecelerate:
+# Declared In
+# UIScrollView.h
+
+
+
+
+
 class UIView
     def shrink(args={})
         scale=args[:scale] || 0.1
