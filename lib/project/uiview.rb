@@ -1,6 +1,4 @@
 
-
-
 # scrollViewWillEndDragging:withVelocity:targetContentOffset:
 # Tells the delegate when the user finishes scrolling the content.
 
@@ -55,7 +53,7 @@ class UIView
     def restore
         zoom_out_to scale:1, alpha:1
     end
-
+#from https://github.com/colinta/sugarcube/blob/1.0
       def back_fiend!(options={})
     scale = options[:scale] || 0.5
     perspective = options[:perspective] || -0.0005
@@ -67,7 +65,7 @@ class UIView
       self.layer.transform = CATransform3DTranslate(CATransform3DScale(CATransform3DIdentity, scale, scale, scale), 0, size, 0)
     }.start
   end
-
+#from https://github.com/colinta/sugarcube/blob/1.0
   # restores the layer after a call to 'back_fiend!'
   def forward_fiend!(options={})
     UIView.animate(options) do
@@ -178,3 +176,6 @@ class UIView
         frame.width
     end
 end
+
+
+

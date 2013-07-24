@@ -4,3 +4,8 @@ class UIWindow
         rootViewController
     end
 end
+
+
+class DSFingerTipWindow
+
+end

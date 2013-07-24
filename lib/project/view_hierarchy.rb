@@ -1,24 +1,26 @@
-module ViewHierarchy
 
-end
-
-class Symbol
-    def clr
-        self.uicolor
-    end
-    def 
-        self.uicolor
-    end
-    # alias_method :clr, :uicolor
-    # alias_method :color, :uicolor
-    
-end
 
 class Frame
     def make()
         
     end
 end
+
+
+
+class UIViewController
+    include ViewHierarchy
+    def paste(uiview)
+        self.view.paste(uiview)
+        uiview
+    end
+    def views
+        self.view.views
+    end
+end
+
+
+
 
 class UIView
     class << self
@@ -67,35 +69,4 @@ class UIView
     def bcolor
         self.backgroundColor
     end
-end
-
-class UIViewController
-    include ViewHierarchy
-    def paste(uiview)
-        self.view.paste(uiview)
-        uiview
-    end
-    def views
-        self.view.views
-    end
-end
-
-
-class Window
-    def self.window
-        (UIApplication.sharedApplication.keyWindow || UIApplication.sharedApplication.windows[0])
-    end
-    def self.win
-        self.window
-    end
-end
-
-class UIWindow
-    def method_name
-        
-    end
-end
-
-class DSFingerTipWindow
-
 end
